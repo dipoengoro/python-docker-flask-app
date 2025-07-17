@@ -1,21 +1,22 @@
 # file: app.py
 from flask import Flask, render_template
-from datetime import datetime
 
 app = Flask(__name__)
 
 @app.route('/')
 def home():
-    """Menampilkan halaman utama menggunakan template HTML."""
+    # Data list of dictionaries untuk to-do list kita
+    todo_list = [
+        {'task': 'Belajar Dasar-dasar Flask', 'done': True},
+        {'task': 'Buat Aplikasi "Hello, World!"', 'done': True},
+        {'task': 'Belajar HTML Template', 'done': True},
+        {'task': 'Gunakan For Loops di Template', 'done': False},
+        {'task': 'Push ke Github', 'done': False}
+    ]
 
-    # Menyiapkan data yang akan dikirim ke template
-    waktu_sekarang = datetime.now().strftime("%H:%M:%S")
-
-    # Me-render file 'index.html' dan mengirimkan variabel ke dalamnya
     return render_template('index.html',
-                           page_title='My First Web App',
-                           main_greeting='Halo dari Template!',
-                           current_time=waktu_sekarang)
+                           page_title='My To-Do App',
+                           todos=todo_list)
 
 
 if __name__ == '__main__':

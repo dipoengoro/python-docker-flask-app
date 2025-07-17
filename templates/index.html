@@ -4,15 +4,24 @@
     <meta charset="UTF-8">
     <title>{{ page_title }}</title>
     <style>
-        body { font-family: sans-serif; background-color: #f0f0f0; text-align: center; }
+        body { font-family: sans-serif; background-color: #f4f4f9; text-align: center; }
         .container { max-width: 600px; margin: 50px auto; padding: 20px; background-color: #fff; border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
+        ul { list-style: none; padding: 0; }
+        li { padding: 12px; border-bottom: 1px solid #ddd; text-align: left; }
+        li.done { text-decoration: line-through; color: #888; }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>{{ main_greeting }} 👋</h1>
-        <p>Halaman ini disajikan oleh Flask pada: <strong>{{ current_time }}</strong></p>
+        <h1>📝 My To-Do List</h1>
+        <ul>
+            {% for item in todos %}
+                <li class="{% if item.done %}done{% endif %}">
+                    {{ item.task }}
+                </li>
+            {% endfor %}
+        </ul>
     </div>
 </body>
 </html>
