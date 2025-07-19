@@ -1,22 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>About This App</title>
-    <style>
-        body { font-family: sans-serif; background-color: #f4f4f9; text-align: center; }
-        .container { max-width: 600px; margin: 50px auto; padding: 20px; background-color: #fff; border-radius: 8px;
-        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); }
-        a { color: #007bff; text-decoration: none; }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Tentang Aplikasi Ini</h1>
-        <p>Ini adalah aplikasi to-do list sederhana yang dibuat dengan Flask dan Docker.</p>
-        <p>Dibuat sebagai bagian dari proses belajar dengan Tutor Py. 🤖</p>
-        <br>
-        <a href="{{ url_for('home') }}">Kembali ke Home</a>
-    </div>
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}
+About This App
+{% endblock %}
+
+{% block content %}
+    <h1>Tentang Aplikasi Ini</h1>
+    <p>Ini adalah aplikasi to-do list sederhana yang dibuat dengan Flask dan Docker.</p>
+    <p>Dibuat sebagai bagian dari proses belajar dengan Tutor Py. 🤖</p>
+    <br>
+    <a href="{{ url_for('home') }}">Kembali ke Home</a>
+{% endblock %}
